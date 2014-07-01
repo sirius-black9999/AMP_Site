@@ -1,0 +1,19 @@
+<html>
+<head>
+    <script type="application/javascript">
+        function PrintCV()
+        {
+            var x = document.getElementById("exPDF");
+            x.click();
+            x.setActive();
+            x.focus();
+            x.print();
+        }
+    </script>
+</head>
+
+<body onload="PrintCV()">
+<!--<embed src="Curriculum Vitae Tycho Henzen.pdf" style="width: 595px; height: 1684px"/>-->
+<object id="exPDF" type="application/pdf" data="Curriculum Vitae Tycho Henzen.pdf" width="100%" height="100%"/>
+</body>
+</html>

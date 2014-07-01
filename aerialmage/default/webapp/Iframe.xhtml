@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
+
+<h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Aerial Mage Productions - Homepage</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- CSS Font Icon and Plugins -->
+    <link href="assets/font/fa/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="assets/font/tello/css/fontello.css" rel="stylesheet"/>
+    <link href="assets/css/magnific-popup.css" rel="stylesheet"/>
+    <link href="assets/css/animation.css" rel="stylesheet"/>
+    <!-- Theme of Design -->
+    <link href="assets/css/stylePopup.css" rel="stylesheet"/>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <h:outputScript library="js" name="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <h:outputScript library="js" name="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="assets/images/faicon.png"/>
+    <link rel="apple-touch-icon" sizes="129x129" href="assets/images/icon.png"/>
+
+    <link href="assets/css/yourcss.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+    <!-- =========
+    Start Wrapper Page
+    ===================================-->
+    <div id="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-lg-offset-0">
+                    <!-- =========
+                    Start portrait section
+                    ===================================-->
+                    <section class="content" id="main-content">
+                        <nav id='navigation'>
+                            <ul class="navigation-list clearfix list-unstyled">
+                                <li class="active"><a href="#about" data-toggle="tab" data-menu="about"><i
+                                        class="icon-user"></i>
+                                    <span>About Me</span></a></li>
+                                <li><a href="#background" data-toggle="tab" data-menu="resume"><i
+                                        class="icon-newspaper"></i>
+                                    <span>Background</span></a></li>
+                                <li><a href="#screenshots" data-toggle="tab" data-menu="portfolio"><i
+                                        class="icon-folder-open"></i>
+                                    <span>Screenshots</span></a></li>
+                                <li><a href="#download" data-toggle="tab" data-menu="blog"><i class="icon-pencil"></i>
+                                    <span>Download</span></a></li>
+                                <li><a href="#readmore" data-toggle="tab" data-menu="contact"><i class="icon-mail"></i>
+                                    <span>Read more</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="tab-content">
+                            <div id='about' class="tab-pane  fade in  active">
+                                <div class="body-content">
+                                    <h1>About <h:outputText value="#{portfolioBean.currentPortfolioPage.projectTitle}" escape="true"/> </h1>
+                                    <h:outputText value="#{portfolioBean.currentPortfolioPage.projectDescription}" escape="false"/>
+                                </div>
+                            </div>
+                            <div id='background' class="tab-pane  fade">
+                                <div class="body-content">
+                                    <h1>Project </h1>
+                                    <ul class="list-info">
+                                        <ui:repeat value="#{portfolioBean.currentPortfolioPage.projectFacts}" var="fact">
+                                            <li><h:outputText value="#{fact}" escape="true"/> </li>
+                                        </ui:repeat>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id='screenshots' class="tab-pane  fade">
+                                <div class="body-content">
+                                    <h1>Screenshots</h1>
+                                    <div class="box-block">
+                                        <div id="client_slider" class="carousel slide" data-ride="carousel"
+                                             data-interval="5000">
+                                            <div class="carousel-inner">
+                                                <ui:repeat value="#{portfolioBean.currentPortfolioPage.projectScreenshotPaths}" var="screenie">
+                                                    <div class="item #{portfolioBean.currentPortfolioPage.projectScreenshotPaths[0] == screenie ? 'active':''}" >
+                                                        <a href="#{screenie}"><img
+                                                                src="#{screenie}"
+                                                                alt=""
+                                                                class="img-thumbnail img-responsive"
+                                                                style=" height: 300px; margin-left: auto; margin-right: auto;"/></a>
+                                                    </div>
+                                                </ui:repeat>
+                                            </div>
+                                        </div>
+                                        <div class="control-testi-slider" style="text-align: center">
+                                            <a href="#client_slider" data-slide="prev"><i
+                                                    class="fa fa-chevron-left"></i></a>
+                                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                            <a href="#client_slider" data-slide="next"><i
+                                                    class="fa fa-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id='download' class="tab-pane  fade">
+                                <div class="body-content">
+                                    <h1>Downloads</h1>
+                                    <h:outputText value="#{portfolioBean.currentPortfolioPage.downloadsText}" escape="false"/>
+
+                                    <h1>Source code</h1>
+                                    <h:outputText value="#{portfolioBean.currentPortfolioPage.sourceCodeText}" escape="false"/>
+                                </div>
+                            </div>
+                            <div id='readmore' class="tab-pane  fade">
+                                <div class="body-content">
+                                    <h1>Read more</h1>
+                                    <ul>
+                                        <ui:repeat value="#{portfolioBean.currentPortfolioPage.readMoreUrls}" var="rm">
+                                            <li><h:outputText value="#{rm}" escape="false"/> </li>
+                                        </ui:repeat>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-line"></div>
+                    </section>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =========
+    End Wrapper Page
+    ===================================-->
+
+    <!-- =========
+    Text Showup Wait Document Ready
+    ===================================-->
+    <div id="wait-page" class="text-center">Loading...</div>
+
+    <!-- =========
+    Link Config Custom styles
+    ===================================-->
+
+
+    <!-- =========
+    Javascript load
+    ===================================-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- jQuery animation page loader -->
+    <script src="assets/js/pace.min.js"></script>
+
+    <!-- JS maps for gmap3 JavaScript plugins) -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.autofix_anything.js"></script>
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <script src="assets/js/gmap3.min.js"></script>
+
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+    <!-- Configuration app js -->
+    <script src="assets/js/app.js"></script>
+
+
+</h:body>
+</html>
